@@ -6,8 +6,10 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./article-body.component.scss']
 })
 export class ArticleBodyComponent implements OnInit {
+  // 將item從父元件input進來
   @Input()
   item: any;
+
   constructor() { }
 
   ngOnInit(): void {

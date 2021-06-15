@@ -14,17 +14,27 @@ export class ArticleHeaderComponent implements OnInit {
   @Output()
   delete = new EventEmitter<any>(); //事件發射器
 
-  isEdit = false;
+  // 按下enter的時候觸發
+  @Output()
+  titleChanged = new EventEmitter<any>(); //事件發射器
 
+  isEdit = false;
+  newTitle = '';
   constructor() { }
 
-  //做觸發刪除文章的動作
+  doEdit(title: any) {
+    this.newTitle = title;
+    this.titleChanged.emit({ id: this.item.id, title: title });
+  }
+
+  //往父元件發射做觸發刪除文章的動作(this.item等於父元件的$event資料)
   deleteArticle() {
     this.delete.emit(this.item);
   }
 
   //angular生命週期(ㄧ)
   ngOnInit(): void {
+    this.newTitle = this.item.title;
   }
 
   //angular生命週期(二)

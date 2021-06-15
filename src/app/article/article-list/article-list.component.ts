@@ -1,3 +1,4 @@
+import { isNgTemplate } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -16,6 +17,15 @@ export class ArticleListComponent implements OnInit {
     this.data = this.data.filter((v: any) => {
       return v !== item;
     });
+  }
+
+  changeTitle($event: any) {
+    this.data = this.data.map(item) => {
+      if (item.id == $event.id) {
+        return Object.assign({}, item, $event);
+      }
+      return item;
+    }
   }
 
   ngOnInit(): void {
