@@ -19,14 +19,14 @@ export class ArticleListComponent implements OnInit {
     });
   }
 
-  changeTitle($event: any) {
-    this.data = this.data.map(item) => {
-      if (item.id == $event.id) {
-        return Object.assign({}, item, $event);
-      }
-      return item;
-    }
-  }
+  // changeTitle($event: any) {
+  //   this.data = this.data.map(item) => {
+  //     if (item.id == $event.id) {
+  //       return Object.assign({}, item, $event);
+  //     }
+  //     return item;
+  //   }
+  // }
 
   ngOnInit(): void {
     this.data = [

@@ -1,5 +1,6 @@
 <header class="post-header">
   <h2 class="post-title">
+    <!-- 超連結 -->
     <a *ngIf="!isEdit" [href]="item.href">{{ item.title }}</a>
     <!-- 設定輸入框 -->
     <input *ngIf="isEdit" type="text" size="70" [value]="newTitle" (keyup.enter)="doEdit($event.target.value)"
